@@ -1,0 +1,115 @@
+{
+ "actions": [],
+ "creation": "2024-10-22 18:01:37.138303",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enable_backup",
+  "backup_type",
+  "azure_account_name",
+  "azure_container_name",
+  "azure_account_key",
+  "backup_frequency",
+  "backup_time",
+  "notification_emails",
+  "retention_days"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "description": "Toggle to enable or disable backup functionalities.",
+   "fieldname": "enable_backup",
+   "fieldtype": "Check",
+   "label": "Enable Backup"
+  },
+  {
+   "fieldname": "azure_account_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Azure Account Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "azure_account_key",
+   "fieldtype": "Password",
+   "in_list_view": 1,
+   "label": "Azure Account Key",
+   "reqd": 1
+  },
+  {
+   "fieldname": "azure_container_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Azure Container Name",
+   "reqd": 1
+  },
+  {
+   "default": "Daily",
+   "fieldname": "backup_frequency",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Backup Frequency",
+   "options": "\nDaily",
+   "reqd": 1
+  },
+  {
+    "fieldname": "backup_type",
+    "fieldtype": "Select",
+    "label": "Backup Type",
+    "options": "Database Only\nDatabase + Files",
+    "default": "Database Only",
+    "reqd": 1,
+    "description": "Choose whether to back up the database only or both database and files."
+  },
+  {
+   "default": "00:00",
+   "fieldname": "backup_time",
+   "fieldtype": "Time",
+   "label": "Backup Time",
+   "reqd": 1
+  },
+  {
+   "description": "Comma-separated list of email addresses to receive backup notifications.",
+   "fieldname": "notification_emails",
+   "fieldtype": "Data",
+   "label": "Notification Emails",
+   "reqd": 1
+  },
+  {
+   "default": "30",
+   "description": "Number of days to retain backups in Azure Blob Storage.",
+   "fieldname": "retention_days",
+   "fieldtype": "Int",
+   "label": "Retention Days",
+   "reqd": 1
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-10-23 16:48:53.441716",
+ "modified_by": "Administrator",
+ "module": "Azure Backup",
+ "name": "Azure Backup Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
